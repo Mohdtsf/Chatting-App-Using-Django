@@ -1,0 +1,46 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{% static 'css/home.css' %}" />
+    <title>ChatApp - Home</title>
+  </head>
+  <body>
+    <nav>
+      <h1>ChatApp</h1>
+      <a href="/logout/">Logout</a>
+    </nav>
+    <div class="main-container">
+      <div class="left-menu" id="leftMenu">
+        <div class="toggle" id="togglebutton">
+          <button id="toggleMenu"><span>></span></button>
+        </div>
+        <h2>Users</h2>
+        <ul>
+          {% for item in user_status %}
+          <li
+            style="font-weight: { % if item.is_unread % }bold{ %else% }normal{ % endif % };"
+          >
+            <a href="/chat/{{ item.user.id }}/">{{ item.user.username }}</a>
+            {% if item.is_unread %}
+            <span class="new-message">(New Message)</span>
+            {% endif %}
+          </li>
+          {% endfor %}
+        </ul>
+      </div>
+      <div class="main-content">
+        <h2>Welcome, {{ request.user.username }}</h2>
+        <p>Select a user from the left menu to start chatting.</p>
+      </div>
+      <div class="right-panel"><h1>Right Panel</h1></div>
+    </div>
+    <footer>
+      <p>&copy; 2025 ChatApp</p>
+    </footer>
+    <script src="{% static 'js/script.js' %}"></script>
+  </body>
+</html>

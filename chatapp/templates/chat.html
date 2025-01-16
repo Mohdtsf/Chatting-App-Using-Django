@@ -1,0 +1,42 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{% static 'css/chat.css' %}" />
+    <title>Chat with {{ receiver.username }}</title>
+  </head>
+  <body>
+    <nav>
+      <h1>ChatApp</h1>
+      <a href="/">Back to Home</a>
+    </nav>
+    <div class="heading">
+      <h1>Chat with {{ receiver.username }}</h1>
+    </div>
+    <div class="messages">
+      {% for msg in messages %}
+      <div class="message">
+        <span class="sender">{{ msg.sender.username }}:</span>
+        <span class="text">{{ msg.message }}</span>
+      </div>
+      {% endfor %}
+    </div>
+    <div class="message-input">
+    <form method="post">
+      {% csrf_token %}
+      <input
+        type="text"
+        name="message"
+        placeholder="Type a message..."
+        required
+      />
+      <button type="submit">Send</button>
+    </div>
+    </form>
+    <footer>
+      <p>&copy; 2025 ChatApp</p>
+    </footer>
+  </body>
+</html>
