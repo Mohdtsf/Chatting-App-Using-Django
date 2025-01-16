@@ -1,0 +1,7 @@
+asgiref==3.7.2
+Django==5.1.4
+sqlparse==0.4.4
+djangorestframework==3.14.0  # Optional, if you use DRF for APIs
+channels==4.0.0  # For WebSockets (if used for real-time chat)
+channels-redis==4.0.0  # Redis backend for Django Channels (if applicable)
+pillow==10.0.1  # For image/file handling (if needed)
