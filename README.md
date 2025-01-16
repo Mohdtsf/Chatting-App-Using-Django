@@ -1,7 +1,3 @@
-Based on the provided GitHub repository, here's a comprehensive `README.md` file with instructions on how to set up and run the Chatting App using Django and WebSockets.
-
----
-
 # Chatting App Using Django
 
 This is a real-time chat application built with Django for the backend and WebSockets for real-time communication.
